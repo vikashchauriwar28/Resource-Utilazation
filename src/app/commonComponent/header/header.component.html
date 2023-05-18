@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-color fixed-top px-5">
+    <a class="navbar-brand text-white" href="#">
+      <img src="../../../assets/hm_logo2.png" alt="Happiest Minds Logo" class="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown" *ngIf="selectedUserType === 'Admin'">
+          <div class="nav-link dropdown-toggle text-white cursor" role="button" data-toggle="dropdown" aria-expanded="false">
+            Admin
+          </div>
+          <div class="dropdown-menu">
+            <div class="dropdown-item text-dark cursor" (click)="navigateOpenPosition()" >Open Position</div>
+          </div>
+        </li>
+        <li class="nav-item dropdown" *ngIf="selectedUserType === 'Account'">
+          <div class="nav-link dropdown-toggle text-white cursor" data-toggle="dropdown" aria-expanded="false">Account</div>
+          <div class="dropdown-menu">
+            <div class="dropdown-item text-dark cursor" (click)="navigateAccount()">Account Operate</div>
+            <div class="dropdown-item text-dark cursor" (click)="navigateManager()">Manager</div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link text-white cursor" (click)="navigateDashboard()">Dashboard</div>
+        </li>
+        <li class="nav-item" *ngIf="isloggedIn !== 'true'">
+          <a class="nav-link text-white" routerLink="./sign-up">Sign Up</a>
+        </li>
+        <li class="nav-item" *ngIf="isloggedIn === 'true'">
+          <a class="nav-link text-white cursor" (click)="logOut($event)">Log Out</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>

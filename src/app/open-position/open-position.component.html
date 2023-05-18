@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="container top-margin px-0">
+  <div class="row">
+    <div class="col-sm-12 px-0">
+      <h1 class="heading my-4 font-color heading">Open Position</h1>
+    </div>
+  </div>
+  <div class="row pt-3 pb-4">   
+        <form [formGroup]="positionsForm" (ngSubmit)="openPosition()" class="col-sm-12 pl-0 px-0">
+          <mat-form-field class="col-sm-4 pl-0">
+            <mat-label>Choose an Account</mat-label>
+            <mat-select formControlName="account">
+              <mat-option value="Accent">Accent</mat-option>
+              <mat-option value="Fairview">Fairview</mat-option>
+              <mat-option value="Honeywell">Honeywell</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <mat-form-field class="col-sm-4">
+            <mat-label>Choose a Project</mat-label>
+            <mat-select formControlName="project" multiple>
+              <mat-option value="Accent Learning">Accent Learning</mat-option>
+              <mat-option value="Accent Learning1">Accent Learning1</mat-option>
+              <mat-option value="Accent Learning2">Accent Learning2</mat-option>
+              <mat-option value="Accent Learning3">Accent Learning3</mat-option>
+              <mat-option value="Speciality Fairview Pharmacy">Speciality Fairview Pharmacy</mat-option>
+              <mat-option value="Honeywell-1">Honeywell-1</mat-option>
+              <mat-option value="Honeywell-2">Honeywell-2</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <mat-form-field class="col-sm-4">
+            <mat-label>Choose a Business Unit</mat-label>
+            <mat-select formControlName="businessUnit">
+              <mat-option value="PES">PES</mat-option>
+              <mat-option value="DBS">DBS</mat-option>
+              <mat-option value="IMSS">IMSS</mat-option>
+            </mat-select>
+          </mat-form-field>
+      
+          <mat-form-field class="col-sm-4 pl-0">
+            <mat-label>Select Required Skills</mat-label>
+            <mat-select formControlName="requiredSkills" multiple>
+              <mat-option value="Angular">Angular</mat-option>
+              <mat-option value="React">React</mat-option>
+              <mat-option value="Dot Net">Dot Net</mat-option>
+              <mat-option value="Java">Java</mat-option>
+              <mat-option value="Salesforce">Salesforce</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="col-sm-4">
+            <mat-label>Number of Positions</mat-label>
+            <input matInput type="noPosition" formControlName="noPosition">
+          </mat-form-field>
+          <div class="col-12 px-0">
+            <button mat-raised-button color="primary" type="submit" >Add Position</button>
+          </div>
+        </form>
+      
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 px-0">
+      <app-mat-table [tableData]="dataSources" [columnHeader]="columnHeader"></app-mat-table>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

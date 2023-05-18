@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-sm-4 login p-5">
+            <h1 class="text-info mb-2 text-center font-weight-bold">LOGIN</h1>
+            <h5 class="mb-3 text-center">Welcome back! Login with credentials</h5>
+            <form [formGroup]="login" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div class="alert alert-danger mt-2" role="alert" *ngIf="login.get('email')?.invalid && (login.get('email')?.dirty || login.get('email')?.touched)">
+                    <span *ngIf="login.get('email')?.hasError('required')">Email is required.</span>
+                    <span *ngIf="login.get('email')?.hasError('minlength')">Email should be at least 3 characters long.</span>
+                    <span *ngIf="login.get('email')?.hasError('emailInvalid')">Invalid email format.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1">
+                  <div class="alert alert-danger mt-2" role="alert" *ngIf="login.get('password')?.invalid && (login.get('password')?.dirty || login.get('password')?.touched)">
+                    <span *ngIf="login.get('password')?.hasError('required')">Password is required.</span>
+                    <span *ngIf="login.get('password')?.hasError('minlength')">Password should be at least 8 characters long.</span>
+                    <span *ngIf="login.get('password')?.hasError('passwordInvalid')">Password must contain at least one alphabet, one number, and one special character.</span>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 rounded-pill">Login</button>
+                <div class="form-group mt-4">
+                  <h4 class="text-center" >Don't have an account? <b routerLink="/sign-up" class="text-primary">Sign Up</b></h4>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

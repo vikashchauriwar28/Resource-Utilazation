@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="container top-margin">
+  <div class="row">
+    <div class="col-sm-12">
+        <!-- <h1 class="heading">Dashboard</h1>   -->
+          <h1 class="text-dark heading">Welcome, {{currentUser.name}}</h1>
+    </div>
+  </div>
+  <div class="row bg-dashboard py-4">
+    <div class="col-sm-12">
+      <div class="row">
+        
+        <div class="col-sm-3 d-flex justify-content-center">
+          <img src="../../assets/passport.jfif" class="radius">
+        </div>
+        <div class="col-sm-9 bg-dashboard pl-5">  
+          <div class="row pt-5">
+            <div class="col-2 pr-0">
+              <h3 class="employee-text heading">Designation : </h3>
+            </div>
+            <div class="col-10">
+              <h3 class="employee-text heading">{{currentUser.designation}}</h3>
+            </div>
+            <div class="col-2 pr-0">
+              <h3 class="employee-text heading">Competency : </h3>
+            </div>
+            <div class="col-10">
+              <h3 class="employee-text heading">{{currentUser.grade}}</h3>
+            </div>
+            <div class="col-2">
+              <h3 class="employee-text heading">Location :</h3>
+            </div>
+            <div class="col-10">
+              <h3 class="employee-text heading">{{currentUser.location}}</h3>
+            </div>
+            <div class="col-2">
+              <h3 class="employee-text heading">Exprience :</h3>
+            </div>
+            <div class="col-10">
+              <h3 class="employee-text heading">{{currentUser.experience}}</h3>
+            </div>
+            <div class="col-2">
+              <h3 class="employee-text heading">Skills :</h3>
+            </div>
+            <div class="col-10">
+              <h3 class="employee-text heading">{{currentUser.skills}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

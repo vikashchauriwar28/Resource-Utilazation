@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="container top-margin">
+    <div class="row">
+      <div class="col-sm-12">
+       <h1 class="heading">Feedback</h1>
+      </div>
+        <div class="col-12">
+            <table class="table border">
+                <thead class="bg-color">
+                  <tr>
+                    <th scope="col" class="text-white">Name</th>
+                    <th scope="col" class="text-white">Skills</th>
+                    <th scope="col" class="text-white">Add Comment</th>
+                    <th scope="col" class="text-white">Resume</th>
+                    <th scope="col" class="text-white">Add Comment</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-color heading-table">{{selectedUser.name}}</td>
+                    <td class="font-color heading-table">{{selectedUser.skills}}</td>
+                    <td>
+                      <textarea #commentTextarea class="font-color heading-table"></textarea>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                      <button mat-stroked-button type="button" class="btn btn-primary font-color" (click)="addComment(commentTextarea.value); openSnackBar()" (click)="openSnackBar()" aria-label="Show an example snack-bar">Add Comment</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

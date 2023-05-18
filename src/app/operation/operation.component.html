@@ -1,0 +1,66 @@
+<app-header></app-header>
+<div class="container top-margin">
+  <div class="row">
+    <div class="col-sm-12 my-4 px-0">
+      <h1 class="text-color heading">Operation Account</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 px-0">
+      <form [formGroup]="searchReq" (ngSubmit)="onSearch()">
+        <mat-form-field class="form-group pr-5 px-0">
+          <mat-select formControlName="regAccount" id="regAccount" name="regAccount" placeholder="Choose an Account"
+            (selectionChange)="handleAccountChange($event)">
+            <mat-option value="Accent">Accent</mat-option>
+            <mat-option value="Fairview">Fairview</mat-option>
+            <mat-option value="Honeywell">Honeywell</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-group px-0">
+          <mat-select formControlName="reqProject" id="reqProject" name="reqProject" placeholder="Choose Project" (selectionChange)="handleProjectChange($event)">
+            <mat-option *ngFor="let project of getProject; let i=index;" [value]="project">{{project}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+          <p class="num-position-text pb-2 text-color" *ngFor="let noPosition of numberPosition">Number of Position : <span class="bg-info number-positions p-1 rounded">{{noPosition}}</span></p>
+        <div class="form-group pb-3 px-0">
+        <button mat-raised-button color="primary" type="submit" class="btn btn-primary d-inline-block">Search</button>
+          </div>
+      </form>
+    </div>
+  </div>
+  <div class="row my-5">
+    <div class="col-md-12 px-0">
+      <!-- <app-mat-table [tableData]="dataSources" [columnHeader]="columnHeader" (shareClicked)="openSharePage($event)"></app-mat-table> -->
+      <table class="table border">
+        <thead class="bg-color">
+          <tr>
+            <th scope="col" class="text-white">No.</th>
+            <th scope="col" class="text-white">Name</th>
+            <th scope="col" class="text-white">Skills</th>
+            <th scope="col" class="text-white">Designation</th>
+            <th scope="col" class="text-white">Prevoius Project comment</th>
+            <th scope="col" class="text-white">Exprience in year</th>
+            <th scope="col" class="text-white">Share with DM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of match;let i=index">
+            <th scope="row" class="text-color">{{i+1}}</th>
+            <td class="text-color">{{user.name}}</td>
+            <td class="text-color">{{user.skills}}</td>
+            <td class="text-color">{{user.designation}}</td>
+            <td class="text-color">{{user.comment}}</td>
+            <td class="text-color">{{user.experience}}</td>
+            <td>
+              <button type="button" class="btn btn-primary" (click)="openSHarePage(user)">
+                Share
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+
