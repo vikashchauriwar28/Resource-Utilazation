@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit{
   //        this.selectedUserType=element.userType
   //     })
   //   }
-
+ 
     logOut(event:Event): void {
       localStorage.removeItem('isloggedIn')
       localStorage.removeItem('currentUser')

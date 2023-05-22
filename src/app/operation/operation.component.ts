@@ -56,7 +56,6 @@ export class OperationComponent implements OnInit {
     })     
   }
   
- 
   handleProjectChange(ev: any) {
     // debugger
     this.numberPosition = [];

@@ -1,34 +1,13 @@
-.img{
-  height: 200px;
-}
-.emplyee-page{
-  background-color: #c0c7ce;
-}
-.t-gap{
-  margin-top: 80px;
-}
-.table-employee{
-  margin-bottom: 100px;
-}
-.bg-employee{
-  background-color: rgba(0, 0, 0, 0.903);
-}
-.employee-text{
-  color:#254067;
-}
-.upload-label{
-  font-size: 20px;
-}
-
 .bg-dashboard{
-  // background: linear-gradient(73deg, #115eb4, #1676e2, #1aa5c9);
   border-radius: 15px;
   background-color: #c3cbdc;
   background-image: linear-gradient(147deg, #c3cbdc 0%, #edf1f4 74%);
-
-}
-.radius{
-  border-radius: 25px;
+  .boder-radius-img{
+    border-radius: 25px;
+  }
+  .employee-text{
+    color:#254067;
+  }
 }
 .heading{
   font-family: 'Mulish', sans-serif;
@@ -36,8 +15,8 @@
 }
 .top-margin{
   margin-top: 80px !important;
-}
-.heading{
-  font-family: 'Mulish', sans-serif;
-  font-weight: 800;
+  .heading{
+    font-family: 'Mulish', sans-serif;
+    font-weight: 800;
+  }
 }

@@ -1,6 +1,6 @@
 export class AuthService{
     [x: string]: any;
-    isLoggedIn : boolean =true;
+    isLoggedIn : boolean =false;
     currentUser: any;
  
     isAuthenticated(){
@@ -21,6 +21,4 @@ export class AuthService{
         this.isLoggedIn =false;
         this.currentUser = null;
     }
-
-    
 }

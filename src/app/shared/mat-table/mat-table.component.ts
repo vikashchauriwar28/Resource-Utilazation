@@ -8,16 +8,16 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class MatTableComponent implements OnInit{
   @Input() tableData:any;
-   @Input() columnHeader:any;
-   dataSource:any;
-   objectKeys = Object.keys;
+  @Input() columnHeader:any;
+  dataSource:any;
+  objectKeys = Object.keys;
 
-   ngOnInit()
-  {
+  ngOnInit(){
     console.log(this.tableData);
     this.dataSource = new MatTableDataSource(this.tableData);
     // this.dataSource.sort = this.sort;
   }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -27,18 +27,12 @@ export class MatTableComponent implements OnInit{
    // alert(JSON.stringify(changes));
     console.log(this.tableData);
    }
-   // Add an output event to emit the button click event
+
   @Output() shareClicked: EventEmitter<any> = new EventEmitter<any>();
 
-  // ...
-
-  // Emit the button click event
   openSharePage(element: any) {
     this.shareClicked.emit(element);
   }
 
-  // ...
-
- 
 }
 
