@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/sevices/auth.service';
+import { AuthService } from '../shared/sevices/auth-service/auth.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { formatDate } from '@angular/common';
 

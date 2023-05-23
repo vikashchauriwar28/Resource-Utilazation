@@ -20,12 +20,12 @@ import { OperationComponent } from './operation/operation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthGuard } from './shared/auth-guard.service';
-import { AuthService } from './shared/sevices/auth.service';
+import { AuthGuard } from './shared/sevices/auth-service/auth-guard.service';
+import { AuthService } from './shared/sevices/auth-service/auth.service';
 import { EmployeeFeedbackComponent, PizzaPartyAnnotatedComponent } from './employee-feedback/employee-feedback.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatTableComponent } from './shared/mat-table/mat-table.component';
-import { CapitalizeNameDirective } from './shared/capitalize-name.directive';
+import { CapitalizeNameDirective } from './shared/directive/capitalize-name.directive';
 import { FooterComponent } from './commonComponent/footer/footer.component';
 
 

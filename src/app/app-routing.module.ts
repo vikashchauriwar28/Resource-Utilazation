@@ -5,7 +5,7 @@ import { OpenPositionComponent } from './open-position/open-position.component';
 import { OperationComponent } from './operation/operation.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthGuard } from './shared/auth-guard.service';
+import { AuthGuard } from './shared/sevices/auth-service/auth-guard.service';
 import { EmployeeFeedbackComponent } from './employee-feedback/employee-feedback.component';
 // import { SharedModule } from './shared/shared.module';
 
