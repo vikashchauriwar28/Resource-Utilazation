@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
 import { Route, Router } from '@angular/router';
 
 @Component({
@@ -21,9 +22,9 @@ export class OperationComponent implements OnInit {
   getProject: any = [];
   match: any[] = [];
 
-  //  columnHeader = {'name': 'Name','skills':'Skills','designation':'Designation','comment':'Prevoius Project comment','experience': 'Experience in year','share': 'Share Resume'};
-
-  //  dataSources: any[]=[];
+  // columnHeader = {'name': 'Name','skills':'Skills','designation':'Designation','comment':'Prevoius Project comment','experience': 'Experience in year','share': 'Share Resume', 'action': 'Action'};
+  // dataSources: any[]=[];
+  // public dataSource = new MatTableDataSource <SampleTable>(); 
 
   ngOnInit(): void {
     this.searchReq = new FormGroup({
@@ -44,26 +45,34 @@ export class OperationComponent implements OnInit {
   constructor(private route: Router) {
 
   }
+
+  // On Account value Change 
   handleAccountChange(e: any) {
     // debugger
     this.selectedAccount = e.value;
+    // set project empty
     this.getProject = [];
+    // Loop on Open-Position for account match from open position array
     this.getOpenPosition.forEach((element) => {
       if (element.account === this.selectedAccount) {
         this.getProject.push(element.project[0]);
        }
-       console.log(this.getProject);
+      //  console.log(this.getProject);
     })     
   }
   
+  // On Project select 
   handleProjectChange(ev: any) {
     // debugger
     this.numberPosition = [];
+    //Get value from input field
     this.selectedProject = ev.value;
+     // Loop on Open-Position for get number of position
     this.getOpenPosition.forEach((eve)=>{
       if (eve.account === this.selectedAccount) {
         eve.project.forEach((pro: any) => {
           if (pro === this.selectedProject) {
+            // store number of position inside numberPosition variable
             this.numberPosition.push(eve.noPosition)
           }
         })
@@ -71,6 +80,7 @@ export class OperationComponent implements OnInit {
     })
   }
 
+  //on Search button 
   onSearch() {
     this.getOpenPosition.forEach((element) => {
       if (element.account === this.selectedAccount) {
@@ -78,15 +88,14 @@ export class OperationComponent implements OnInit {
           if (pro === this.selectedProject) {
             this.skillArr = element.requiredSkills, 'match skill';
             this.matchSkills();
+          //  console.log( this.dataSources,'data operation')
           }
         })
       }
     })
   }
 
-
   matchSkills() {
-   
     this.matchedEmployee=[];  
     this.userDataArr.forEach((element) => {
       element.skills.forEach((ill: any) => {
@@ -97,16 +106,12 @@ export class OperationComponent implements OnInit {
               this.match = this.matchedEmployee.filter(item => !expected.has(JSON.stringify(item)) ? expected.add(JSON.stringify(item)) : false);
             // this.dataSources=this.matchedEmployee
           }
-          
         })
-        
       })
-     
     })
   }
   openSHarePage(user:any) {
     this.route.navigate(['./employeeFeedback']);
     localStorage.setItem('selectedUser', JSON.stringify(user));
   }
-  
 }

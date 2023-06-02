@@ -11,6 +11,7 @@ export class SignUpComponent implements OnInit{
   signUp:FormGroup | any;
   addUsers: any[] = [];
   
+  // Custom validator function for email
   passwordValidator: ValidatorFn = (control: AbstractControl): { [key: string]: boolean } | null => {
     const value: string = control.value;
     // Check if password contains at least one alphabet, one number, and one special character

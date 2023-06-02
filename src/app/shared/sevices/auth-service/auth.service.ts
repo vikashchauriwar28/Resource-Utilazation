@@ -1,13 +1,13 @@
 export class AuthService{
     [x: string]: any;
-    isLoggedIn : boolean =false;
+    isLoggedIn : boolean =true;
     currentUser: any;
  
     isAuthenticated(){
         let myPromise = new Promise((resolve)=>{
             setTimeout(()=>{
                 resolve(this.isLoggedIn)
-            }, 1000);
+            }, 100);
         })
         return myPromise
     }

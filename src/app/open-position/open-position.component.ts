@@ -10,15 +10,14 @@ import { Subscription, interval } from 'rxjs';
 export class OpenPositionComponent implements OnInit{
   positionsForm : FormGroup | any;
   positions: any[] = [];
-   updateSubscription: any;
+  updateSubscription: any;
 
   constructor(){
 
   }
 
-
-
-  columnHeader = {'account': 'Account','project':'Project','businessUnit':'BU','requiredSkills':'Required Skills','noPosition': 'Number Of Position',};
+  //Reusable Table data
+  openPositionsColumn = {'account': 'Account','project':'Project','businessUnit':'BU','requiredSkills':'Required Skills','noPosition': 'Number Of Position',};
   dataSources: any[]=[];
 
   ngOnInit(){
@@ -31,18 +30,20 @@ export class OpenPositionComponent implements OnInit{
     })
    this.setTableData();
     // localStorage.clear()
- 
   }
 
+  // Data set for reusable mat-table
   setTableData() {
     const positionsStr = localStorage.getItem('positions');
     if (positionsStr) {
       this.positions = JSON.parse(positionsStr);
+      // Store data in dataSources for reusable table
       this.dataSources = this.positions
-      console.log(this.dataSources)
+      // console.log(this.dataSources)
     }
   }
   
+  // Open Position Button method
   openPosition(){
     // console.log(this.positionsForm.valid,'asdf')
     if (this.positionsForm.valid) {
@@ -60,5 +61,4 @@ export class OpenPositionComponent implements OnInit{
     }
   }
 
-  
 }

@@ -11,8 +11,9 @@ export class HeaderComponent implements OnInit{
   userData: any;
   selectedUserType:any;
   isloggedIn: any;
+  currentUser: any;
 
-  constructor(private authServ:AuthService,private router:Router){
+  constructor(private authServ:AuthService,private router:Router,private authService: AuthService){
 
   }
 
@@ -28,6 +29,23 @@ export class HeaderComponent implements OnInit{
     
     console.log(this.selectedUserType)
     console.log('inside header comp')
+
+    const value = 'Clear me';
+    this.authService.isAuthenticated().then((authenticated) => {
+      if (typeof authenticated === 'boolean' && !authenticated) {
+        // Redirect to login if not authenticated
+        this.authService.logOut();
+        window.location.href = '/login';
+      } else {
+        // Get current user data
+        this.currentUser = this.authService.currentUser;
+        // alert(JSON.stringify(this.currentUser));
+      }
+    });
+
+    // get userData Array
+    // const userData: any = localStorage.getItem('usersData');
+    // this.userDataArr = JSON.parse(userData)
   }
 
   // role(){

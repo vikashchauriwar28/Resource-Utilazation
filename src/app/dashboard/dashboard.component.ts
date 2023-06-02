@@ -11,8 +11,7 @@ import { formatDate } from '@angular/common';
 export class DashboardComponent implements OnInit{
   currentUser: any;
   uploadResume: FormGroup | any;
-
-  file: File | null = null;
+  // file: File | null = null;
   userDataArr: any;
   currentUserInfo: any;
 
